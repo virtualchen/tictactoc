@@ -40,34 +40,10 @@ var resetGame = function(){
 
 $().ready(function(){
 	gameInit();
-	var obj = $(".grid");
-	obj.each(function(){
-		$(this).click(function(){
-			 var grid = $(this);
-			 //console.log(this);
-    		 var gridIndex = grid.data('grid-no');
-    		 //console.log(gridIndex);
-    		 if(gridCount === 0 ){
-    		 	gameinfo[gridIndex] = 1;
-    		 	grid.html('X');
-    		 	gridCount ++ ;
-    		 }else{
-    		 	console.log(gridIndex);
-    		 	if(gameinfo[gridIndex] == 0){
-    		 		gridCount ++;
-    		 		if(gridCount %2 == 0){
-    		 			grid.html('O');
-    		 			gameinfo[gridIndex] =-1;
-    		 		}else{
-    		 			grid.html('X');
-    		 			gameinfo[gridIndex] = 1;
-    		 		}
-    		 		
-    		 	}
-    		 	checkWin();
-
-    		 }
-    		 
-		});
-	});
+	// var obj = $(".grid");
+	// obj.each(function(){
+	// 	$(this).click(function(){
+			
+	// 	});
+	// });
 });
