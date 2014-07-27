@@ -28,8 +28,34 @@ require([
 				'click .grid': 'playRound'
 			}, 
 
-			playRound: function(){
-				console.log('click');
+			playRound: function(e){
+				 //console.log('click');
+				 var grid = $(e.currentTarget);
+				 //console.log(this);
+				 //console.log(grid);
+				 var gridIndex = grid.data('grid-no');
+	    		 console.log(gridIndex);
+
+	    		 if(gameModule.gridCount === 0 ){
+	    		 	gameModule.gameinfo[gridIndex] = 1;
+	    		 	grid.html('X');
+	    		 	gameModule.gridCount ++ ;
+	    		 }else{
+	    		 	//console.log(gridIndex);
+	    		 	if(gameModule.gameinfo[gridIndex] == 0){
+	    		 		gameModule.gridCount ++;
+	    		 		if(gameModule.gridCount %2 == 0){
+	    		 			grid.html('O');
+	    		 			gameModule.gameinfo[gridIndex] =-1;
+	    		 		}else{
+	    		 			grid.html('X');
+	    		 			gameModule.gameinfo[gridIndex] = 1;
+	    		 		}
+	    		 		
+	    		 	}
+	    		 	gameModule.checkWin();
+
+	    		 }
 			 
     		}
     	});
