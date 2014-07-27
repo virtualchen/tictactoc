@@ -1,11 +1,10 @@
-var count = 0;
+define(['jquery'] , function ($) {
+    return function () {};
+});
 
-(function($){
-	//console.log($);
-	
-}($));
 var gameinfo = [0,0,0,0,0,0,0,0,0];
 var gridCount = 0;
+var count = 0;
 var gameInit = function(){
 	
 }
@@ -23,19 +22,19 @@ var checkWin = function(){
 		 console.log(gameinfo);
 	board.forEach(function(o){
 		//console.log(o);
-		if(o=== 3 || o === -3){
+		if(o=== 3 || o === -3 || gridCount ===9){
 			alert("game over");
+			resetGame();
 		}
 	});
 
 };
 
 var resetGame = function(){
-	var obj = $(".grid");
-	obj.each(function(o){
-		console.log(o);
-		$(o).html('');
-	});
+	gameinfo = [0,0,0,0,0,0,0,0,0];
+	gridCount = 0;
+	$(".grid").empty();
+	
 }
 
 
